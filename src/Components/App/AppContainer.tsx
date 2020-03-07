@@ -1,5 +1,7 @@
 import React from 'react';
 import AppProvider from "./AppProvider";
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import Home from '../../Routes/Home';
 
 const AppContainer = () => (
     <AppProvider>
@@ -8,9 +10,12 @@ const AppContainer = () => (
 );
 
 const AppPresenter = () => (
-    <>
-        hi
-    </>
+    <BrowserRouter>
+        <Switch>
+            <Route path={"/"} component={Home}/>
+            <Redirect from={"*"} to={"/"}/>
+        </Switch>
+    </BrowserRouter>    
 )
 
 export default AppContainer;

@@ -10,5 +10,5 @@
 
 ## Todo
 - [x] Init App.
-- [ ] ThemeProvider.
+- [x] ThemeProvider.
 - [ ] Navbar

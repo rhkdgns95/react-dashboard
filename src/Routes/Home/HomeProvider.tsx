@@ -1,4 +1,5 @@
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useEffect } from 'react';
+import { useAppContext } from '../../Components/App/AppProvider';
 
 interface IContext {
 
@@ -10,7 +11,12 @@ const HomeContext: React.Context<IContext> = createContext(InitContext);
 
 const useHomeContext = () => useContext(HomeContext);
 
-const useFetch = (): { value: IContext } => {
+const useFetch = (path: any): { value: IContext } => {
+    const { handleChangeNavPath } = useAppContext();
+    
+    useEffect(() => {
+        handleChangeNavPath(path);
+    }, []);
 
     return {
         value: {
@@ -20,9 +26,10 @@ const useFetch = (): { value: IContext } => {
 };
 
 const HomeProvider: React.FC<any> = ({
-    children
+    children,
+    path
 }) => (
-    <HomeContext.Provider { ...useFetch() } >
+    <HomeContext.Provider { ...useFetch(path) } >
         {
             children
         }

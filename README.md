@@ -13,4 +13,5 @@
 - [x] Init App.
 - [x] ThemeProvider.
 - [x] Register Routes.
-- [ ] Navbar
+- [x] Navbar Part 1.
+- [ ] Navbar Part 2.
